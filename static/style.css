@@ -1,0 +1,209 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+    height: 100vh;
+}
+
+/* Container styling */
+.app-container {
+    display: flex;
+    height: 100%;
+}
+
+/* Left panel styling */
+.left-panel {
+    flex: 1;
+    background: #121212;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.left-panel h1 {
+    font-size: 3em;
+    line-height: 1.2;
+    text-align: center;
+    color: #00d9ff;
+    animation: slideIn 1s ease-out;
+}
+
+/* Right panel styling */
+.right-panel {
+    flex: 2;
+    padding: 60px;
+    background: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Password display box */
+.password-display {
+    font-size: 1.5em;
+    background: #2e2e2e;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-align: center;
+    word-break: break-all;
+    border: 2px solid #00d9ff;
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Slider */
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+    -webkit-appearance: none;
+    height: 8px;
+    background: #444;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #00d9ff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #00d9ff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Checkboxes */
+.checkboxes label {
+    display: block;
+    margin: 5px 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.checkboxes input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* Button */
+button {
+    padding: 12px 20px;
+    background: #00d9ff;
+    color: #1f1f1f;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.3s ease;
+    align-self: flex-start;
+}
+
+button:hover {
+    background: #00bcd4;
+}
+
+/* Strength bar */
+.strength {
+    margin-top: 20px;
+}
+
+.strength-bar {
+    width: 100%;
+    background: #333;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.strength-fill {
+    height: 100%;
+    background: #00ff88;
+    width: 0;
+    transition: width 0.5s ease;
+}
+
+#strengthText {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.9em;
+}/* === Strength Bar === */
+.strength {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.strength span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.strength-bar {
+  flex: 1;
+  background: #eee;
+  border-radius: 6px;
+  height: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 40%; /* Default strength (set dynamically with JS) */
+  background: linear-gradient(90deg, #ff5252, #ffb74d, #4caf50);
+  border-radius: 6px;
+  transition: width 0.4s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .left-panel, .right-panel {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .left-panel h1 {
+        font-size: 2em;
+    }
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
