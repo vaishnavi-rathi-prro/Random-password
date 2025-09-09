@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Password Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-container">
+    <div class="left-panel">
+      <h1>Create Strong &<br>Unique<br>Passwords</h1>
+    </div>
+
+    <div class="right-panel">
+      <h2>Password Generator</h2>
+
+      <div class="password-display" id="password">{{ password }}</div>
+
+      <form method="POST">
+        <label>Character Length: <span id="lengthValue">{{ length }}</span></label>
+        <input type="range" min="4" max="50" value="{{ length or 4 }}" name="length" id="lengthSlider">
+
+        <div class="checkboxes">
+          <label><input type="checkbox" name="uppercase"> Include Uppercase Letters</label>
+          <label><input type="checkbox" name="lowercase"> Include Lowercase Letters</label>
+          <label><input type="checkbox" name="numbers"> Include Numbers</label>
+          <label><input type="checkbox" name="symbols"> Include Symbols</label>
+        </div>
+
+        <button type="submit">GENERATE →</button>
+      </form>
+
+      <div class="strength">
+        <span>Strength:</span>
+        <div class="strength-bar" id="strengthBar">
+          <div class="strength-fill" id="strengthFill"></div>
+        </div>
+        <span id="strengthText"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const lengthSlider = document.getElementById("lengthSlider");
+    const lengthValue = document.getElementById("lengthValue");
+
+    lengthSlider.addEventListener("input", () => {
+      lengthValue.textContent = lengthSlider.value;
+    });
+  </script>
+</body>
+</html>
